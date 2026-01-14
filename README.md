@@ -18,13 +18,20 @@ Stores objects with:
 - **Persistent storage** - data saved to disk automatically
 - **Simple API** - easy to integrate with LLM calls
 
+## Data Schema (concept)
+
+| Field                | Type      | Description                              |
+|----------------------|-----------|------------------------------------------|
+| object_id            | string    | Unique object identifier                 |
+| object_xyz           | float[3]  | (x, y, z) coords relative to map         |
+| object_image_ref     | string    | Path/URI to object image                 |
+| object_embedding     | vector    | Object image embedding                   |
+| location_embedding   | vector    | Location / semantic embedding            |
+
 ## Quick Start
 
 ```bash
-# Install dependencies
 pip install -r requirements.txt
-
-# Run demo
 python demo.py
 ```
 
@@ -34,10 +41,10 @@ python demo.py
 from vector_db import ObjectRecord, ObjectVectorDB
 import numpy as np
 
-# Initialize database
+# initialize DB
 db = ObjectVectorDB()
 
-# Create an object
+# create obj
 obj = ObjectRecord(
     object_id="mug_01",
     object_xyz=(1.0, 2.0, 0.0),
@@ -46,13 +53,13 @@ obj = ObjectRecord(
     location_embedding=[0.3, 0.4, ...]  # your location embedding vector
 )
 
-# Store object
+# store obj
 db.upsert(obj)
 
-# Query similar objects by image
+# query similar obj w img
 results = db.query_by_image_embedding(query_embedding, n_results=5)
 
-# Query similar objects by location
+# query similar obj w location
 results = db.query_by_location_embedding(query_embedding, n_results=5)
 ```
 
