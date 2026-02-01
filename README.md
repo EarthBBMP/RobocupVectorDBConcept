@@ -57,7 +57,7 @@ Vector databases for storing objects, scenes, and people. Objects and scenes are
 | object_image_ref     | string    | Path/URI to object image                 |
 | object_embedding     | vector    | Object image embedding                   |
 | location_embedding   | vector    | Location / semantic embedding            |
-| scene_id             | string?   | Optional parent scene ID |
+| scene_id             | string    | Optional parent scene ID |
 
 ### Scene Schema
 
@@ -74,10 +74,10 @@ Vector databases for storing objects, scenes, and people. Objects and scenes are
 |----------------------|-----------|------------------------------------------|
 | person_id            | string    | Unique person identifier (or FaceID)     |
 | people_xyz           | float[3]  | (x, y, z) People Coordinate              |
-| face_embedding       | vector?   | Face embedding |
-| pose_embedding       | vector?   | Pose embedding |
-| timeframe            | string?   | When detected |
-| chat_history_ref     | string?   | Link to chat history |
+| face_embedding       | vector    | Face embedding |
+| pose_embedding       | vector    | Pose embedding |
+| timeframe            | string    | When detected |
+| chat_history_ref     | string    | Link to chat history |
 
 ## Quick Start
 
